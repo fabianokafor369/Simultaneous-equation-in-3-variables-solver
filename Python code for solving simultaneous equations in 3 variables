@@ -23,8 +23,8 @@ def solver(coefficientmatrix, resultmatrix):
     #Eliminate y from the equation using the same process as done on x
     eq1aa = [eq3a[i] * eq3b[0] for i in range(2)]
     eq2aa = [eq3b[i] * eq3a[0] for i in range(2)]
+    
     #Find z, and then x and y by substitution
-
     z1 = (eq4a*eq3b[0] - eq4b*eq3a[0])/([eq1aa[i] - eq2aa[i] for i in range(2)][1])
     z = Fraction(z1)
     y1 =  (eq4a -(eq3a[1]*z))/(eq3a[0])
@@ -32,4 +32,5 @@ def solver(coefficientmatrix, resultmatrix):
     x1 = (resultmatrix[0] - coefficientmatrix[0][2] *z- coefficientmatrix[0][1]* y)/(coefficientmatrix[0][0])
     x = Fraction(x1)
     return "[x,y,z] = " + str([x,y,z])
+    
 print solver([[5,2,1],[1,6,3],[2,4,7]], [8,17,98])
